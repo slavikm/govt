@@ -25,6 +25,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	"github.com/spivaka/filteredError"
 )
 
 const (
@@ -403,7 +404,7 @@ func (self *Client) makeApiGetRequest(fullurl string, parameters Parameters) (re
 	self.dumpRequest(req)
 	resp, err = self.c.Do(req)
 	if err != nil {
-		return resp, err
+		return resp, filteredError.NewFilteredError(err, map[string]string{self.apikey: "*****"})
 	}
 
 	self.dumpResponse(resp)
