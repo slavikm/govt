@@ -500,7 +500,7 @@ func (self *Client) makeApiUploadRequest(fullurl string, parameters Parameters, 
 		return resp, cerr
 	}
 	if err != nil {
-		return resp, err
+		return resp, filteredError.NewFilteredError(err, map[string]string{self.apikey: "*****"})
 	}
 
 	self.dumpResponse(resp)
