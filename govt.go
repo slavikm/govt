@@ -25,7 +25,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
-	"github.com/spivaka/filteredError"
+	"github.com/Spivaka/filteredError"
 )
 
 const (
